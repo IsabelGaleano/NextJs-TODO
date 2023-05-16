@@ -79,7 +79,7 @@ const updateTask = async () => {
 };
 
 const deleteTask = async () => {
-  const reference = "oSx0ZV1t8CviKa5KvbGo";
+  const reference = "I9cqof29pOLg3TvNktoc";
 
   try {
     const response = await fetch(`/api/tasks?reference=${reference}`, {
