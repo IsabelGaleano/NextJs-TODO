@@ -1,13 +1,11 @@
-import { db } from '../../../firebase/config';
-import { collection, getDocs } from 'firebase/firestore';
-
 export default async function handler(req, res) {
+  
   if (req.method !== 'GET') {
     res.status(405).json({ message: 'Method Not Allowed' });
     return;
   }
 
-  try {
+  /*try {
     const websiteRef = collection(db, 'Tasks');
     const snapshot = await getDocs(websiteRef);
     const tasks = snapshot.docs.map((doc) => ({
@@ -18,5 +16,5 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error getting task' });
-  }
+  }*/
 }
