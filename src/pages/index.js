@@ -66,6 +66,7 @@ const updateTask = async () => {
           },
           body: JSON.stringify(newTaskUp)
       });
+      
 
       if (!response.ok) {
           throw new Error('Network response was not ok');
