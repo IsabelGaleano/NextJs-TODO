@@ -39,8 +39,12 @@ const createTaskHandler = async (req, res) => {
             done: done,
         };
         const ref = await db.collection('tasks').add(newTask);
-        const task = await ref.get();
-        res.status(200).json({ task: task.data() });
+        //const task = await ref.get();
+        const task = {
+            ...newTask,
+            reference: ref.id  // Agrega la referencia al objeto task
+        };
+        res.status(200).json({ task });
     } catch (e) {
         console.error(e);
         res.status(500).json({ error: 'Something went wrong' });
