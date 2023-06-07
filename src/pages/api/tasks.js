@@ -64,10 +64,12 @@ const updateTaskHandler = async (req, res) => {
             const updatedTask = {
                 id: id,
                 text: text || task.data().text, // Use existing text if text is not provided
-                done: done || task.data().done, // Use existing done value if done is not provided
+                done: done || task.data().done,
+                reference: reference // Use existing done value if done is not provided
             };
             await taskRef.update(updatedTask);
-            res.status(200).json({ task: updatedTask });
+            res.status(200).end(JSON.stringify(updatedTask));
+           
         }
     } catch (e) {
         console.error(e);
