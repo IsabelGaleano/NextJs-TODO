@@ -21,13 +21,14 @@ const getTaskHandler = async (req, res) => {
     try {
         const posts = await db.collection('tasks').get();
         const tasks = posts.docs.map((doc) =>  ({ reference: doc.id, ...doc.data() }));
-        res.status(200).json({ tasks });
+        res.status(200).json(tasks );
     } catch (e) {
         console.error(e);
         res.status(500).json({ error: 'Something went wrong' });
     }
 
 }
+
 
 const createTaskHandler = async (req, res) => {
     const { id, text, done } = req.body;
